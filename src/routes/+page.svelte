@@ -85,8 +85,7 @@
 					style:color={locationColors[location] ?? '#111'}
 					aria-pressed={selectedLocation === location}
 					onclick={() => chooseLocation(location)}>{location}</button
-				>{#if location !== locations.at(-1)},
-				{/if}
+				>
 			{/each}
 		</nav>
 
@@ -237,6 +236,10 @@
 		line-height: inherit;
 		letter-spacing: inherit;
 		text-align: left;
+	}
+
+	.location-list button:not(:last-child)::after {
+		content: ',\00a0';
 	}
 
 	.location-list button.active {
